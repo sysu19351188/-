@@ -1,0 +1,38 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class student {              //定义学生类
+public:
+	student(int newnumble = 0, char newname[40] = 0, int newold = 0);    //构造
+	void set(int newnumble, char newname[40], int newold);         //设置
+	void print();                                       //打印
+private:
+	int numble;
+	char name[40];
+	int old;                                           //数据成员
+};
+student::student(int newnumble, char newname[40], int newold) {
+	numble = newnumble;
+	strcpy_s(name, newname);
+	old = newold;
+}
+void student::set(int newnumble, char newname[40], int newold) {
+	numble = newnumble;
+	strcpy_s(name, newname);
+	old = newold;
+};
+void student::print() {
+	cout << numble << " " << name << "" << old << endl;
+}
+int main() {
+	student a(0,0,0),b(0,0,0);
+	char ab[40] = "ab", cd[40] = "cd";
+	cout << "The first student's numble,name and old is:" << endl;
+	a.set(1,ab,18);
+	a.print();
+	cout << "The second student's numble,name and old is:" << endl;
+	b.set(2,cd,19);
+	b.print();
+	return 0;
+}
